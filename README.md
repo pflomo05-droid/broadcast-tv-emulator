@@ -1,214 +1,229 @@
-# 📺 Broadcast TV Emulator
+# Broadcast TV Emulator
 
-> A nostalgic broadcast TV emulator featuring 2000s-2010s Canadian television channels
-
-![TV Emulator](https://img.shields.io/badge/Era-2000s--2010s-red) ![License](https://img.shields.io/badge/License-MIT-blue) ![Status](https://img.shields.io/badge/Status-Active-green)
+A retro 2000s/2010s style TV emulator built with vanilla HTML, CSS, and JavaScript. Experience the nostalgia of classic television with a fully functional interface!
 
 ## Features
 
-✨ **Retro UI Design** - Authentic 2000s-2010s television aesthetics
+✨ **Retro Design**
+- Authentic 2000s/2010s TV aesthetic
+- CRT screen effect with scanlines and flicker
+- Realistic control panel with knobs and buttons
+- Glowing green channel display
+- Power indicator light with animations
+- Speaker grilles
+- Beveled 3D TV body
 
-📺 **Major Canadian Channels** - CTV, CBC, Global, Citytv, TSN, MuchMusic, Space, Discovery Channel
+📺 **Full Functionality**
+- 20 channels to browse
+- Video playback support (MP4/WebM)
+- Volume control with visual feedback
+- Channel switching (buttons, direct input, keyboard, sidebar)
+- Channel information display
+- Power on/off capability
+- Channel selection sidebar
 
-📖 **TV Guide** - Complete program schedule for all channels
+⌨️ **Interactive Controls**
+- **POWER Button**: Turn TV on/off (or press SPACEBAR)
+- **Channel Up/Down**: Switch channels (◀/▶ buttons or Arrow Up/Down)
+- **Channel Input**: Jump to a specific channel (1-20)
+- **Volume Knob**: Adjust volume (0-100%)
+- **Sidebar**: Click any channel to switch instantly
 
-📺 **Channel Browser** - Switch between channels with authentic button design
+## How to Use
 
-🎬 **Period-Accurate Programming** - Shows and content from the 2000s-2010s era
+1. **Turn On the TV**: Click the POWER button or press SPACEBAR
+2. **Switch Channels**: 
+   - Click ◀ or ▶ buttons
+   - Use Arrow Up/Down keys
+   - Enter a channel number (1-20) in the input field
+   - Click a channel in the sidebar
+3. **Adjust Volume**: Drag the volume slider
+4. **Turn Off**: Click POWER button again or press SPACEBAR
 
-📺 **Commercial Breaks** - Nostalgic period-accurate commercials
+## Installation
 
-🎨 **Visual Effects** - Scanlines, CRT screen effects, neon glow
-
-📱 **Responsive Design** - Works on desktop and mobile devices
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v12 or higher)
-- npm or yarn
-
-### Installation
+Simply open `index.html` in a modern web browser. No dependencies, no build process!
 
 ```bash
-# Clone the repository
+# Clone or download the repository
 git clone https://github.com/pflomo05-droid/broadcast-tv-emulator.git
 cd broadcast-tv-emulator
 
-# Install dependencies
-npm install
-
-# Start the server
-npm start
+# Open in browser
+open index.html
+# or
+start index.html
+# or
+double-click index.html
 ```
 
-The application will be available at `http://localhost:3000`
+## Browser Support
 
-### Development
-
-For development with auto-reload:
-
-```bash
-npm run dev
-```
-
-## Usage
-
-1. **Open the application** in your web browser
-2. **Select a channel** by clicking on the channel buttons (CTV, CBC, Global, etc.)
-3. **View the program** currently airing on the screen
-4. **Open the TV Guide** to see the full schedule for all channels
-5. **Experience commercials** - Period-accurate ads from the era
-6. **Enjoy the retro experience** with authentic 2000s-2010s UI design
-
-### Keyboard Shortcuts
-
-- **G** - Toggle TV Guide
-- **Esc** - Close modals
+Works in all modern browsers:
+- Chrome/Chromium (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers
 
 ## Project Structure
 
 ```
 broadcast-tv-emulator/
-├── public/
-│   ├── index.html          # Main HTML file
-│   ├── styles.css          # Retro styling
-│   └── script.js           # Frontend logic
-├── data/
-│   ├── channels.js         # Channel definitions
-│   ├── tvGuide.js          # Program schedules
-│   └── commercials.js      # Commercial content
-├── server.js               # Express server
-├── package.json            # Dependencies
-└── README.md               # This file
+├── index.html          # Main HTML structure
+├── styles.css          # Retro styling and animations
+├── script.js           # Interactive functionality
+└── README.md          # Documentation
 ```
 
-## API Endpoints
+## Technical Details
 
-### Channels
-```
-GET /api/channels
-```
-Get all available channels
+- **Pure HTML5**: No frameworks or libraries needed
+- **CSS3**: Advanced gradients, animations, and effects
+- **HTML5 Video**: Native video playback with `<video>` element
+- **Vanilla JavaScript**: No dependencies, lightweight
+- **Responsive Design**: Works on desktop and tablet
 
-### Current Program
-```
-GET /api/current/:channelId
-```
-Get the currently airing program for a channel
+## Video Sources
 
-### TV Guide
-```
-GET /api/guide/:date
-GET /api/guide/:channelId/:date
-```
-Get program schedule for a date or specific channel
-
-### Commercials
-```
-GET /api/commercials/:channelId
-```
-Get commercials for a specific channel
-
-## Channels
-
-| Channel | Number | Type |
-|---------|--------|------|
-| CTV | 2 | General Entertainment |
-| CBC | 4 | Public Broadcasting |
-| Global | 7 | General Entertainment |
-| Citytv | 6 | Urban Programming |
-| TSN | 20 | Sports |
-| MuchMusic | 15 | Music |
-| Space | 32 | Science Fiction |
-| Discovery | 30 | Documentary |
-
-## Technologies Used
-
-- **Backend**: Node.js, Express.js
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Data**: JSON-based program scheduling
-- **Design**: Retro CSS animations and effects
+Uses sample videos from Google Commons (public domain):
+- BigBuckBunny.mp4
+- ElephantsDream.mp4
+- Sintel.mp4
+- TearsOfSteel.mp4
+- VolkswagenGTIReview.mp4
+- And more!
 
 ## Customization
 
-### Add New Channels
+### Add Custom Channels
 
-Edit `data/channels.js` and add a new channel object:
-
-```javascript
-{
-  id: 'channelid',
-  name: 'Channel Name',
-  number: 99,
-  logo: '🎬',
-  color: '#XXXXXX',
-  era: '2000s-2010s',
-  description: 'Channel Description'
-}
-```
-
-### Add New Programs
-
-Edit `data/tvGuide.js` and add programs to the channel's array:
+Edit the `channels` array at the top of `script.js`:
 
 ```javascript
-{ title: 'Program Name', startTime: 'HH:MM', duration: 60, genre: 'Genre' }
+const channels = [
+    {
+        id: 1,
+        name: "Channel 1",
+        title: "Your Channel Name",
+        description: "Your channel description",
+        videoUrl: "https://your-video-url.mp4"
+    },
+    // Add more channels...
+];
 ```
 
-### Add Commercials
+### Change Colors and Styling
 
-Edit `data/commercials.js` and add ads:
+Modify CSS variables and colors in `styles.css`:
+- TV bezel colors: `.tv-container` background
+- Screen glow: `.tv-screen-wrapper` box-shadow
+- Channel display: `.channel-display` color
+- Button colors: `.power-btn`, `.channel-btn` styling
 
-```javascript
-{ id: 1, title: 'Ad Title', duration: 30, year: 2005, description: 'Ad Description' }
-```
+### Customize Channel List
 
-## Browser Support
+Edit the channels before the `init()` function in `script.js` to add:
+- Different video URLs
+- Custom channel names
+- New channel descriptions
+- More or fewer channels
 
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+## Tips & Tricks
 
-## Future Features
+- Press **SPACEBAR** to quickly toggle power
+- Use **Arrow Keys** to navigate channels when TV is on
+- The TV remembers your volume setting during the session
+- All videos are streamed, not stored locally
+- Great for full-screen display!
+- Works perfect on large projectors or displays
 
-- [ ] Real-time program updates
-- [ ] User favorites/bookmarks
-- [ ] Recording simulation
-- [ ] More period-accurate graphics
-- [ ] Historical program data
-- [ ] Audio/video integration
-- [ ] Multi-language support
-- [ ] Mobile app version
+## Features Overview
 
-## Contributing
+### Channel Display
+- Digital green text display showing current channel
+- Animated scanlines for authentic CRT effect
+- Power indicator light that pulses when on
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### Control Panel
+- Authentic 2000s design with beveled buttons
+- Volume slider with percentage display
+- Channel selector with forward/back buttons
+- Direct channel input (1-20)
+- Power button with feedback
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Info Display
+- Current channel name and title
+- Program description
+- Updates in real-time
+
+### Sidebar
+- List of all 20 channels
+- Active channel highlighting
+- Click to switch instantly
+
+## Performance
+
+- Lightweight: Only ~8KB of CSS, ~12KB of JavaScript
+- Fast loading: No external dependencies
+- Smooth animations: 60fps animations
+- Mobile optimized: Touch-friendly controls
+
+## Browser Compatibility
+
+| Browser | Status |
+|---------|--------|
+| Chrome/Chromium | ✅ Full Support |
+| Firefox | ✅ Full Support |
+| Safari | ✅ Full Support |
+| Edge | ✅ Full Support |
+| IE 11 | ❌ Not Supported |
+
+## Future Enhancement Ideas
+
+- Add more channels (expand to 50+)
+- Commercial breaks simulation
+- TV guide / schedule display
+- Recording/snapshot feature
+- Channel presets (favorite channels)
+- Picture adjustment (brightness, contrast)
+- Sound customization
+- Local video file upload
+- Dark/light themes
+
+## Troubleshooting
+
+**Video won't play?**
+- Check your internet connection
+- Try a different channel
+- Ensure your browser supports HTML5 video
+- Check browser console for errors
+
+**Controls not working?**
+- Refresh the page
+- Clear browser cache
+- Try a different browser
+- Check if JavaScript is enabled
+
+**Audio issues?**
+- Adjust the volume slider
+- Check system volume
+- Try a different video source
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Free to use and modify for personal and commercial projects.
 
-## Acknowledgments
+## Contributing
 
-- Inspired by nostalgia for 2000s-2010s Canadian television
-- Retro design inspired by CRT monitors and vintage TV sets
-- Programming schedules inspired by actual Canadian TV history
-- Special thanks to all Canadian broadcasters of the era
+Feel free to fork and submit improvements! Suggestions welcome.
 
-## Contact
+## Credits
 
-Flomo - [@pflomo05-droid](https://github.com/pflomo05-droid)
-
-Project Link: [https://github.com/pflomo05-droid/broadcast-tv-emulator](https://github.com/pflomo05-droid/broadcast-tv-emulator)
+Created with vanilla web technologies - HTML5, CSS3, and JavaScript.
 
 ---
 
-⭐ If you enjoy this project, please consider giving it a star!
+**Enjoy your retro TV experience! 📺✨**
+
+Visit: [https://github.com/pflomo05-droid/broadcast-tv-emulator](https://github.com/pflomo05-droid/broadcast-tv-emulator)

@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* TV Container */
+.tv-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background: linear-gradient(180deg, #2c2c2c 0%, #1a1a1a 50%, #0d0d0d 100%);
+    border-radius: 40px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 0, 0, 0.5);
+    border: 8px solid;
+    border-color: #333 #555 #555 #333;
+}
+
+/* Screen Wrapper */
+.tv-screen-wrapper {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 255, 0.1);
+    border: 4px solid #1a1a1a;
+    margin-bottom: 20px;
+}
+
+/* CRT Effect */
+.crt-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Video Player */
+.tv-screen {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #000;
+    object-fit: cover;
+}
+
+/* Scanlines */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 3;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    50% { opacity: 1; }
+    100% { opacity: 0.97; }
+}
+
+/* Channel Display */
+.channel-display {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(0, 255, 100, 0.2);
+    border: 2px solid #00ff64;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #00ff64;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Courier New', monospace;
+    z-index: 4;
+    text-shadow: 0 0 10px #00ff64;
+}
+
+/* Power Indicator */
+.power-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    background: #ff0000;
+    border-radius: 50%;
+    border: 2px solid #cc0000;
+    z-index: 4;
+    animation: powerPulse 1s infinite;
+}
+
+.power-indicator.off {
+    background: #333;
+    border-color: #555;
+    animation: none;
+}
+
+@keyframes powerPulse {
+    0%, 100% { box-shadow: 0 0 5px #ff0000; }
+    50% { box-shadow: 0 0 15px #ff0000; }
+}
+
+/* TV Body */
+.tv-body {
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+
+/* Speaker Grilles */
+.speaker-left, .speaker-right {
+    position: absolute;
+    width: 80px;
+    height: 150px;
+    background: repeating-linear-gradient(
+        90deg,
+        #1a1a1a 0px,
+        #1a1a1a 8px,
+        #0d0d0d 8px,
+        #0d0d0d 10px
+    );
+    border-radius: 40px;
+    border: 2px solid #333;
+}
+
+.speaker-left {
+    left: 15px;
+    bottom: 40px;
+}
+
+.speaker-right {
+    right: 15px;
+    bottom: 40px;
+}
+
+/* Control Panel */
+.control-panel {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 10px;
+    border: 2px solid #444;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-group label {
+    font-size: 11px;
+    font-weight: bold;
+    color: #999;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Volume Control */
+.knob {
+    width: 100px;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #1a1a1a 0%, #3a3a3a 50%, #1a1a1a 100%);
+    border: 2px solid #555;
+    cursor: pointer;
+    appearance: none;
+}
+
+.knob::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #888, #333);
+    cursor: pointer;
+    border: 2px solid #666;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.knob::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #888, #333);
+    cursor: pointer;
+    border: 2px solid #666;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+#volumeDisplay {
+    font-size: 11px;
+    color: #00ff64;
+    font-family: 'Courier New', monospace;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Channel Buttons */
+.channel-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.channel-btn {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 100%);
+    border: 2px solid #555;
+    border-radius: 4px;
+    color: #999;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.channel-btn:active {
+    background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
+    border-color: #777;
+}
+
+.channel-input {
+    width: 50px;
+    padding: 5px;
+    background: #1a1a1a;
+    border: 2px solid #555;
+    border-radius: 4px;
+    color: #00ff64;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+/* Power Button */
+.power-btn {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 30% 30%, #444, #111);
+    border: 3px solid #333;
+    border-radius: 50%;
+    color: #00ff00;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1), 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.power-btn:hover {
+    background: radial-gradient(circle at 30% 30%, #555, #222);
+}
+
+.power-btn:active {
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Info Display */
+.info-display {
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 12px;
+    color: #00ff64;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    text-shadow: 0 0 5px #00ff64;
+}
+
+#channelName {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #00ff64;
+}
+
+#programInfo {
+    color: #888;
+    font-size: 11px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 200px;
+    background: linear-gradient(180deg, #2c2c2c 0%, #1a1a1a 100%);
+    border: 3px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.sidebar h3 {
+    color: #00ff64;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #00ff64;
+    padding-bottom: 10px;
+    text-shadow: 0 0 5px #00ff64;
+}
+
+.channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.channel-item {
+    padding: 10px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 2px solid #333;
+    border-radius: 4px;
+    color: #999;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.channel-item:hover {
+    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-color: #555;
+    color: #00ff64;
+}
+
+.channel-item.active {
+    background: linear-gradient(180deg, #1a3a1a 0%, #0d2a0d 100%);
+    border-color: #00ff64;
+    color: #00ff64;
+    box-shadow: 0 0 10px rgba(0, 255, 100, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        max-height: none;
+        margin-top: 20px;
+    }
+
+    body {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .tv-container {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .tv-screen-wrapper {
+        height: 250px;
+    }
+
+    .control-panel {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .speaker-left, .speaker-right {
+        display: none;
+    }
+}

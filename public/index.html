@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcast TV Emulator - 2000s-2010s Canadian TV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="retro-container">
+        <header class="retro-header">
+            <div class="header-content">
+                <h1>📺 BROADCAST TV EMULATOR</h1>
+                <p class="tagline">A Nostalgic Journey Through 2000s-2010s Canadian Television</p>
+                <div class="time-display" id="timeDisplay"></div>
+            </div>
+        </header>
+
+        <main class="tv-interface">
+            <!-- TV Screen -->
+            <div class="tv-screen-container">
+                <div class="tv-bezel">
+                    <div class="screen-content">
+                        <div class="program-display" id="programDisplay">
+                            <div class="loading">📡 Tuning...</div>
+                        </div>
+                        <div class="scanlines"></div>
+                    </div>
+                </div>
+                <div class="speaker left"></div>
+                <div class="speaker right"></div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <div class="channel-buttons">
+                    <button class="channel-btn" data-channel="ctv">CTV <span class="ch">2</span></button>
+                    <button class="channel-btn" data-channel="cbc">CBC <span class="ch">4</span></button>
+                    <button class="channel-btn" data-channel="global">GLOBAL <span class="ch">7</span></button>
+                    <button class="channel-btn" data-channel="city">CITY <span class="ch">6</span></button>
+                    <button class="channel-btn" data-channel="tsn">TSN <span class="ch">20</span></button>
+                    <button class="channel-btn" data-channel="much">MUCH <span class="ch">15</span></button>
+                    <button class="channel-btn" data-channel="space">SPACE <span class="ch">32</span></button>
+                    <button class="channel-btn" data-channel="discovery">DISCOVERY <span class="ch">30</span></button>
+                </div>
+
+                <div class="control-buttons">
+                    <button id="guideBtn" class="control-btn guide-btn">📖 GUIDE</button>
+                    <button id="volumeBtn" class="control-btn">🔊 VOLUME</button>
+                    <button id="favBtn" class="control-btn">⭐ FAVORITES</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- TV Guide Modal -->
+        <div class="modal" id="guideModal">
+            <div class="modal-content guide-content">
+                <div class="modal-header">
+                    <h2>📺 TV GUIDE</h2>
+                    <button class="close-btn" id="closeGuideBtn">&times;</button>
+                </div>
+                <div class="guide-container" id="guideContainer">
+                    <div class="loading">Loading guide...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Commercials Modal -->
+        <div class="modal" id="commercialModal">
+            <div class="modal-content commercial-content">
+                <div class="commercial-display" id="commercialDisplay">
+                    <div class="ad-content">
+                        <h3 id="adTitle"></h3>
+                        <p id="adDescription"></p>
+                        <div class="ad-year" id="adYear"></div>
+                    </div>
+                </div>
+                <div class="ad-timer" id="adTimer"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="retro-footer">
+        <p>&copy; 2000s-2010s Canadian TV Experience | Broadcast TV Emulator v1.0</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
